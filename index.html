@@ -31,34 +31,80 @@
           <h3>
 <a name="welcome-to-Project-APM" class="anchor" href="#welcome-to-Project-APM"><span class="octicon octicon-link"></span></a>Welcome to Project APM.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Hello there! This webpage is meant to document our progress on interfacing and using the Arduino Pilot Mega V2.5 with the Raspberry Pi. Before you attempt to try out the steps listed below, please take some time to study and practice Python as well as C++ programming since we will be needing it.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Table of Contents: <br>
+1.)=========Introduction============<br>
+1.0--------The Underwater Robot Project<br>
+1.1--------The Competition <br>
+1.2--------Research <br>
+1.3--------Testing an ROV 
+</p>
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a name="[1.0]-the-underwater-robot-project" class="anchor" href="#[1.0]-the-underwater-robot-project"><span class="octicon octicon-link"></span></a>[1.0] The Underwater Robot Project</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>Project APM is a subset of the Under Water Robot Project. The main project is to [re]construct an Autonomous Underwater Vehicle(AUV). There are several groups of different disciplines working on this project and we are one of these groups(EEE). We are mainly in charge of the software aspects of the project.(Keyboard Warriors!) </p>  
+
+<p>There are three people in the EEE group. Each of us have been assigned individual responsibilities as shown below: </p>  
+ 
+<pre><code>Yong Boon ---> Compass & Depth Sensor
+Wei Khang ----> Control Systems
+Brian -----------> Computer Vision
+</code></pre>  
+ 
+<p>One of the AUVs.</p> 
+ 
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/IMG_0372_zps2f8a6770.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/IMG_0372_zps2f8a6770.jpg" border="0" alt=" photo IMG_0372_zps2f8a6770.jpg"/></a>
+  
+<p></p>  
 
 <h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a name="[1.1]-the-competition" class="anchor" href="#[1.1]-the-competition"><span class="octicon octicon-link"></span></a>[1.1] The Competition</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>The Singapore AUV Challenge 2013 was the most recent competition that our AUV participated in. The project was passed down to us just after the competition.(We got fourth!) Our AUV did not manage to make it through the gate and the motion of the robot was also very choppy.</p> 
+ 
+<p>The video of the competition can be found here: </p> 
+ 
+<iframe width="560" height="315" src="http://www.youtube.com/embed/H0mIRADzzik" frameborder="0" allowfullscreen></iframe> 
+ 
+<p></p>  
 
 <h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a name="[1.2]-getting-down-to-business" class="anchor" href="#[1.2]-getting-down-to-business"><span class="octicon octicon-link"></span></a>[1.2] Getting Down To Business</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Why do we need the Arduino Pilot Mega? Well, we need a compass sensor! If you saw that video above, you would know that our AUV turned around and went back the start point. This was because it did not have a sensor to read it's orientation.</p>
+
+<pre><code>Here are some useful links to get you started:
+Camera Compatibility ----> <a href="http://elinux.org/RPi_VerifiedPeripherals#USB_Webcams">http://elinux.org/RPi_VerifiedPeripherals#USB_Webcams</a> 
+Python Programming ------> <a href="http://www.codecademy.com/tracks/python">http://www.codecademy.com/tracks/python</a>
+Basic Image Processing --> <a href="http://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/robot/image_processing/">http://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/robot/image_processing/</a>
+Blob Detection ---------------> <a href="http://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/robot/blob_detection/">http://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/robot/blob_detection/</a>
+</code></pre>   
+ 
+<p>Not as easy as you think.</p> 
+ 
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/IMG_0438_zps426999b1.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/IMG_0438_zps426999b1.jpg" border="0" alt=" photo IMG_0438_zps426999b1.jpg"/></a>
+  
+<p></p> 
+
+<h3>
+<a name="[1.3]-pool-day!" class="anchor" href="#[1.3]-pool-day!"><span class="octicon octicon-link"></span></a>[1.3] Pool Day!</h3>
+
+<p>No, no one is swimming. Only the Remotely Operated Vehicle(ROV) is swimming. Our supervisors brought us down to pool to demonstrate the ROV. Everyone from all the groups was present and we sure had fun.</p> 
+ 
+<p>[The Nuclear Briefcase. Press to launch.]</p>
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/IMG_0418_zps08e06409.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/IMG_0418_zps08e06409.jpg" border="0" alt="&quot;The Briefcase&quot; photo IMG_0418_zps08e06409.jpg"/></a>
+ 
+<p>[In you go!~]</p>
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/IMG_0435_zps71e64174.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/IMG_0435_zps71e64174.jpg" border="0" alt=" photo IMG_0435_zps71e64174.jpg"/></a> 
+ 
+<p>[The vision is cool right?!]</p> 
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/IMG_0434_zpsf6489d44.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/IMG_0434_zpsf6489d44.jpg" border="0" alt=" photo IMG_0434_zpsf6489d44.jpg"/></a>
+<p></p> 
+
+
+
         </section>
 
         <aside id="sidebar">
