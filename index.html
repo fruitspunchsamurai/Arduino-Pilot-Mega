@@ -46,7 +46,10 @@
 2.3--------Blinking LEDs <br>
 2.4--------I2C, SPI <br> 
 2.5--------Using a Wireless Network Adapter <br>
-2.6--------Customising your Pi 
+2.6--------Customising your Pi <br>
+3.)===========Interfacing===========<br>
+3.0--------Via USB <br>
+3.1--------Testing Connection
 </p>
 
 <h3>
@@ -267,7 +270,68 @@ sudo apt-get install scrot
  
 <p>Have fun!!</p>
 
+<h3>
+<a name="[3.0]-interfacing-via-usb" class="anchor" href="#[3.0]-interfacing-via-usb"><span class="octicon octicon-link"></span></a>[3.0] Interfacing Via USB</h3>
 
+<p>We have managed to interface the Raspberry Pi with the Arduino Pilot Mega V2.5 Via USB connection. We mainly got our information from "Getting Started with Raspberry Pi" from Matt Richardson and Shawn Wallace. The process of how we did it will be explained here.</p>
+
+<p> First, we need to install Arduino into Raspbian.</p>
+<pre><code>Type in these codes on the LXTerminal of your Pi: 
+sudo apt-get update
+sudo apt-get install arduino
+</code></pre>
+ 
+<p>Next, in order to get the Raspberry Pi to communicate with the Arduino via serial port, we need to make sure that the pi user has permission to do so.</p>
+<pre><code>Type in these codes on the LXTerminal of your Pi: 
+sudo usermod -a -G tty pi
+sudo usermod -a -G dialout pi
+</code></pre>
+
+<p>Congratulations and salutations! The Raspberry Pi should be able to recognise the Arduino Pilot Mega V2.5 now. Type <code>lsusb</code> into the LXTerminal just to verify. You should see this: </p>
+
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/80a2baf2-f158-4570-8088-9e1f253a0e59_zps712ad348.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/80a2baf2-f158-4570-8088-9e1f253a0e59_zps712ad348.jpg" border="0" alt=" photo 80a2baf2-f158-4570-8088-9e1f253a0e59_zps712ad348.jpg"/></a>
+<p></p>
+
+<p>See the Arduino SA Mega 2560? Yeaaaaa</p>
+
+<p>Now let's test out the connection! Open up your Arduino IDE on the Raspberry Pi. There are two things we need to do before we can start coding. First, click on (Tools -> Board) and select the Arduino Mega 2560. Next, click on (Tools -> Serial Port) and there select /dev/ttyACM0. You have just successfully configured the Arduino IDE to recognise the Arduino Pilot Mega V2.5. Thus, you can start uploading codes into the APM itself!</p>
+
+<h3>
+<a name="[3.1]-return-to-sender" class="anchor" href="#[3.1]-return-to-sender"><span class="octicon octicon-link"></span></a>[3.1] Return to Sender</h3>
+
+<p>Alright so if we want to communicate over a serial connection, we need to import in the serial libaries into the Raspberry Pi!</p>
+<pre><code>Type in these codes on the LXTerminal of your Pi: 
+sudo apt-get install python-serial python3-serial
+</code></pre>
+
+<p>Now, open up your Arduino IDE and upload this code to the board.</p>
+<pre><code>Type in these codes on the Arduino IDE of your Pi: 
+void setup()
+{
+Serial.begin(9600);
+}
+
+void loop()
+{
+for (byte n = 0; n < 255; n++)
+{
+Serial.write(n);
+delay(50);
+}
+</code></pre>
+
+<p>Now, open up your IDLE and run the python script through the LXTerminal as sudo</p>
+<pre><code>Type in these codes on IDLE: 
+import serial
+
+port = "/dev/ttyACM0"
+serialFromArduino = serial.Serial(port,9600)
+serialFromArduino.flushInput()
+while True:
+    if (serialFromArduino.inWaiting() > 0):
+        input = serialFromArduino.read(1)
+        print (ord(input))
+</code></pre>
 
 
 
