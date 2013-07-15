@@ -49,7 +49,8 @@
 2.6--------Customising your Pi <br>
 3.)===========Interfacing===========<br>
 3.0--------Via USB <br>
-3.1--------Testing Connection
+3.1--------Testing Connection <br>
+3.2--------Compass Sensor Readings
 </p>
 
 <h3>
@@ -333,7 +334,22 @@ while True:
         print (ord(input))
 </code></pre>
 
+<h3>
+<a name="[3.2]-compass-sensor-readings" class="anchor" href="#[3.2]-compass-sensor-readings"><span class="octicon octicon-link"></span></a>[3.2] Compass Sensor Readings</h3>
 
+<p>With alot of help from our Technical Support Officer, Jacqueline, we managed to get the Arduino Pilot Mega V2.5 to output the compass sensor heading values to the Arduino IDE's serial monitor. This was done by getting the source code which you can download from <a href="http://ardupilot.com/downloads/?did=12">here.</a> For detailed instructions on how to use the code, please refer to <a href="https://code.google.com/p/arducopter/wiki/Code">here.</a> </p>
+
+<p>After successful compiling and uploading to the Arduino Pilot Mega, we monitored the results using RealTerm. However, the data we got was useless. We got random numbers printed all over the terminal.</p>
+
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/Numbers_zps59f7649a.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/Numbers_zps59f7649a.jpg" border="0" alt=" photo Numbers_zps59f7649a.jpg"/></a>
+<p></p>
+
+<p>See? The aliens are coming. Jacqueline then helped us with identifying and troubleshooting some of the examples found in the libraries. We found a suitable example in <code>YourArduinoSketchbook > libraries > AP_Compass > examples > AP_Compass_Test</code>. Open up the .PDE file with your custom Arduino IDE and upload it to the Arduino Pilot Mega.</p>
+
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/Compass_zpsdd9fb353.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/Compass_zpsdd9fb353.jpg" border="0" alt=" photo Compass_zpsdd9fb353.jpg"/></a>
+<p></p>
+
+<p></p>
 
         </section>
 
