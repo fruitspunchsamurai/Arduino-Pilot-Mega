@@ -50,7 +50,8 @@
 3.)===========Interfacing===========<br>
 3.0--------Via USB <br>
 3.1--------Testing Connection <br>
-3.2--------Compass Sensor Readings
+3.2--------Compass Sensor Readings <br>
+3.3--------The Finale~
 </p>
 
 <h3>
@@ -348,9 +349,28 @@ while True:
 
 <a href="http://s1367.photobucket.com/user/BrianSYC/media/Compass_zpsdd9fb353.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/Compass_zpsdd9fb353.jpg" border="0" alt=" photo Compass_zpsdd9fb353.jpg"/></a>
 <p></p>
+<p>So you're probably having trouble understanding how to interpet the compass sensor readings. I'll explain it here. </p>
+
+<p>North is indicated by 0.00 Degrees by the compass sensor. East is -90.00 Degrees. West is 90 Degrees. South is 180/-180 Degrees. Starting to see a pattern? Yes, this compass does not output 0-360 degrees. Instead when you rotate it clockwise, the readings go negative and vice versa. If you still can't understand, test out the <code>Arduino Code</code> in the repository!</p>
+
+<h3>
+<a name="[3.3]-the-finale" class="anchor" href="#[3.3]-the-finale"><span class="octicon octicon-link"></span></a>[3.3] The Finale</h3>
+
+<p>Now, you know how to interpret the compass readings and you've probably seen the code running. Now, it's time to send the data to the Raspberry Pi instead of your PC. Sounds complicated? Nah not really, i'll break it down for you.</p>
+
+<p>First off, i'll highlight some important stuff to you. Take a look at the Arduino Code and the Raspberry Pi Code in the repository. The Arduino Code extracts the compass sensor heading data and sends it to Serial port 0. Which is the USB port. The Raspberry Pi Code receives this data from /dev/ttyACM0, which is also it's USB port. Starting to make sense? Also, make sure that the Arduino board is transmitting data at the SAME BAUD RATE as the receving of data of the Raspberry Pi. The baud rate is currently set to 115200.</p>
+
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/2439c309-c92a-444f-8d07-253d3c063cbc_zps6ea6271e.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/2439c309-c92a-444f-8d07-253d3c063cbc_zps6ea6271e.jpg" border="0" alt=" photo 2439c309-c92a-444f-8d07-253d3c063cbc_zps6ea6271e.jpg"/></a>
+
+<p>Upload the Arduino Code into the Arduino Pilot Mega V2.5 and plug it into the Raspberry Pi. Then run the Raspberry Pi code as sudo. You should get the result above!</p>
+
+<h3>Good Luck!~</h3>
+
+
+
+
 
 <p></p>
-
         </section>
 
         <aside id="sidebar">
