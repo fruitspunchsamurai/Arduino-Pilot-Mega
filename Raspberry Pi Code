@@ -1,0 +1,16 @@
+#Compass Sensor Test Module
+#16/7/13
+
+#Import libraries
+import serial
+
+#Open port connection
+port = "/dev/ttyACM0"
+serialFromArduino = serial.Serial(port,115200)
+serialFromArduino.flushInput()
+
+#Receive data
+while True:
+    if (serialFromArduino.inWaiting() > 0):
+        input = serialFromArduino.readline()
+        print (input)
