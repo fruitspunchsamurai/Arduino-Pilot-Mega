@@ -9,8 +9,15 @@ port = "/dev/ttyACM0"
 serialFromArduino = serial.Serial(port,115200)
 serialFromArduino.flushInput()
 
+#Initialise text file
+file = open(“text.txt”, “w”)
+
 #Receive data
 while True:
     if (serialFromArduino.inWaiting() > 0):
         input = serialFromArduino.readline()
         print (input)
+        file.write(str(input))
+
+#Close text file
+f.close()
