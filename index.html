@@ -52,6 +52,9 @@
 3.1--------Testing Connection <br>
 3.2--------Compass Sensor Readings <br>
 3.3--------The Finale~
+4.)============Testing=============<br>
+4.0--------Testing the Program <br>
+4.1--------Pool Testing
 </p>
 
 <h3>
@@ -365,11 +368,38 @@ while True:
 
 <p>Upload the Arduino Code into the Arduino Pilot Mega V2.5 and plug it into the Raspberry Pi. Then run the Raspberry Pi code as sudo. You should get the result above! Do take note that the program will write the compass heading data to a text file just beside the CompassSensor.py file.~</p>
 
+<h3>[4.0] Testing the Program</h3> 
+<p>It's time to test out the program! Hopefully, it can detect black underwater!</p>   
+<p></p> 
+<p>This was the setup i used for testing:</p>     
+<p></p>
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/IMG_0473_zps13fcd8d7.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/IMG_0473_zps13fcd8d7.jpg" border="0" alt=" photo IMG_0473_zps13fcd8d7.jpg"/></a>  
+<p></p> 
+<p>The setup basically consists of a watertight box fitted with the Raspberry Pi, 5V 1A Battery Pack and a temporary circuit for a magnetic switch.</p>
+<p></p>
+<p>There will be a continous stream of processed video stream. However when a magnet is brought near the magnetic switch, the contacts will close and the Raspberry Pi will capture two .jpg images from the video feed. The only thing holding me back now is the ridiculous 371 PSI haze...</p> 
+<p></p>
+<p>The haze reached a high of 401 PSI! And the N95 masks are all sold out! And Singaporeans are still queuing for Hello Kitties! Ok back to work.</p>
+<p></p>
+<p>We have changed the design of our testing kit due to one major reason. There wasn't enough space (it was intended for computer vision callibration only). We changed it to a bigger LocknLock box as shown below.</p>
+
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/IMG_0486_zps3e5df5e1.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/IMG_0486_zps3e5df5e1.jpg" border="0" alt=" photo IMG_0486_zps3e5df5e1.jpg"/></a>
+<p></p>
+<p>As you can see, we have made two major modifications to the box. Firstly, we have made a hole at the side of the box and resealed it with a piece of transparent acrylic and epoxy that smells like dead fish. This is so that our computer vision will not be hindered underwater.(The box is slightly translucent) The second modification is that we have attached a breadboard at the side of the box for our circuitry. We have tested the box for it's "waterproof-ness" at the SP swimming pool, for 10 mins at 2m depth. No leakages!</p>
+<p></p>
+<p>We have also managed to fit all that we need inside the box as shown below.</p>
+
+<a href="http://s1367.photobucket.com/user/BrianSYC/media/IMG_0492_zps6cdb097a.jpg.html" target="_blank"><img src="http://i1367.photobucket.com/albums/r794/BrianSYC/IMG_0492_zps6cdb097a.jpg" border="0" alt=" photo IMG_0492_zps6cdb097a.jpg"/></a>
+<p></p>
+<p>We have written a program known as <code>run.py</code> that basically provides a simple user interface that gives access to all the test programs. (yellowtest,blacktest,compasssensor)The program will prompt you to select the testing program you wish to execute. Then it will wait for a input from the magnetic sensor before it executes the selected program. A blue LED will be lit the moment the program executes.</p>
+
+<h3>[4.1] Pool Testing</h3>
+<p></p>
+
+
 
 <p></p>
 <h3>Good Luck!~</h3>
-
-
 
 
 
