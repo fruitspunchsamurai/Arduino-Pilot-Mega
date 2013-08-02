@@ -1,0 +1,73 @@
+//Include Libaries
+#include <Servo.h>
+#include <stdlib.h>
+
+//Assign servos
+Servo myservo;
+Servo myservo2;
+
+//Initialise thrusters at 0 degrees
+float thrustdeg = 0;         //Initialise variable
+
+//Open Serial Connection + Initialise thrusters at 0 degrees
+void setup()
+{
+  Serial.begin(9600);
+  //Assign APM pin 1 as PWM output
+  myservo.attach(12);
+  //Assign APM pin 3 as PWM output
+  myservo2.attach(8);
+  myservo.write(thrustdeg);
+  myservo2.write(thrustdeg);
+  delay(1000);
+}
+
+void loop()
+{
+  delay(1000);
+  if (Serial.available() > 0)
+  {
+    //Read int input
+    int red = Serial.parseInt();
+    //Black Line Centralised
+    if (red == 160)
+    {
+      myservo.write(90);
+      myservo2.write(90);
+      delay(5000);
+    }
+    //Black Line Offset to left
+    else if (red == 1)
+    {
+      myservo2.write(90);
+      myservo.write(90);
+      delay(500);
+      myservo.write(110);
+      delay(500);
+      myservo.write(130);
+      delay(500);
+      myservo.write(150);
+      delay(500);
+      myservo.write(180);
+      delay(3000);
+    }
+    //Black Line Offset to right
+    else if (red == 320)
+    {
+      myservo.write(90);
+      myservo2.write(90);
+      delay(500);
+      myservo2.write(110);
+      delay(500);
+      myservo2.write(130);
+      delay(500);
+      myservo2.write(150);
+      delay(500);
+      myservo2.write(180);
+      delay(3000);
+    }
+  }
+  //Stop thrusters
+  myservo.write(0);
+  myservo2.write(0);
+}
