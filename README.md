@@ -12,4 +12,5 @@ The third file, Thruster_SIM contains a code for the arduino that controls the o
 
 Arduino Code ----------> C <br>
 Raspberry Pi Code -----> Python V2.7 <br>
-Thruster_SIM ----------> Python V2.7 <br>
+Thruster_SIM ----------> C <br>
+Yellow_Thrusters ------> Python V2.7<br>
