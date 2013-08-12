@@ -10,6 +10,8 @@ As you should have noticed, there are three other files other than this readme f
 
 The third file, Thruster_SIM contains a code for the arduino that controls the output pins using Pulse Width Modulation (PWM). This is just a simulation to test out the thrusters.<br>
 
+The fourth file, Yellow_Thrusters contains a code for the Raspberry Pi that uses the yellow detection computer vision module to send it's tracker location data via Serial communication to the APM.<br>
+
 Arduino Code ----------> C <br>
 Raspberry Pi Code -----> Python V2.7 <br>
 Thruster_SIM ----------> C <br>
