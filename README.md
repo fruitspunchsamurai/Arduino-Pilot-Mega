@@ -12,6 +12,8 @@ The third file, Thruster_SIM contains a code for the arduino that controls the o
 
 The fourth file, Yellow_Thrusters contains a code for the Raspberry Pi that uses the yellow detection computer vision module to send it's tracker location data via Serial communication to the APM.<br>
 
+For more information, head over to: http://fruitspunchsamurai.github.io/Arduino-Pilot-Mega/
+
 Arduino Code ----------> C <br>
 Raspberry Pi Code -----> Python V2.7 <br>
 Thruster_SIM ----------> C <br>
