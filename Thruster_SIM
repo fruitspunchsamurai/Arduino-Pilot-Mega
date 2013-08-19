@@ -1,73 +1,122 @@
-//Include Libaries
+//Include Libraries
 #include <Servo.h>
 #include <stdlib.h>
 
-//Assign servos
-Servo myservo;
-Servo myservo2;
+//Assign Servos
+Servo myservol;
+Servo myservor;
 
-//Initialise thrusters at 0 degrees
-float thrustdeg = 0;         //Initialise variable
+//Declare position variables
+int posl = 45;
+int posr = 45;
 
-//Open Serial Connection + Initialise thrusters at 0 degrees
+//Open Serial Connection + Initialise thrusters at 45 degrees
 void setup()
 {
   Serial.begin(9600);
   //Assign APM pin 1 as PWM output
-  myservo.attach(12);
+  myservol.attach(12);
   //Assign APM pin 3 as PWM output
-  myservo2.attach(8);
-  myservo.write(thrustdeg);
-  myservo2.write(thrustdeg);
+  myservor.attach(8);
+  //Write values to ESC
+  myservol.write(45);
+  myservor.write(45);
+  delay(1000);
+  myservol.write(53);
+  myservor.write(56);
   delay(1000);
 }
 
 void loop()
 {
-  delay(1000);
-  if (Serial.available() > 0)
+ while(1)
+{ 
+ delay(1000);
+ if (Serial.available() > 0)
+ {
+   //Read int input
+   int x = Serial.parseInt();
+   //Call function
+   process_image(x);
+   //Stop thrust and wait for input
+   
+
+    }
+}
+} 
+
+void process_image (int x)
+{
+  if (x >= 155 && x <= 165)
   {
-    //Read int input
-    int red = Serial.parseInt();
-    //Black Line Centralised
-    if (red == 160)
+    while (posl > 53)
     {
-      myservo.write(90);
-      myservo2.write(90);
-      delay(5000);
+      posl = posl - 1;
+      posr = 53;
+      myservol.write(posl);
+      myservor.write(posr);
     }
-    //Black Line Offset to left
-    else if (red == 1)
+    while (posr > 53)
     {
-      myservo2.write(90);
-      myservo.write(90);
-      delay(500);
-      myservo.write(110);
-      delay(500);
-      myservo.write(130);
-      delay(500);
-      myservo.write(150);
-      delay(500);
-      myservo.write(180);
-      delay(3000);
-    }
-    //Black Line Offset to right
-    else if (red == 320)
-    {
-      myservo.write(90);
-      myservo2.write(90);
-      delay(500);
-      myservo2.write(110);
-      delay(500);
-      myservo2.write(130);
-      delay(500);
-      myservo2.write(150);
-      delay(500);
-      myservo2.write(180);
-      delay(3000);
+      posr = posr - 1;
+      posl = 53;
+      myservol.write(posl);
+      myservor.write(posr);
     }
   }
-  //Stop thrusters
-  myservo.write(0);
-  myservo2.write(0);
+  else if (x >= 166 && x <= 245)
+  {
+    while (posr <= 55)
+    {
+      myservor.write(posr);
+      posr = posr + 1;
+      posl = 53;
+      myservol.write(posl);
+      
+    }
+    while (posr > 55)
+    {
+      posr = posr - 1;
+      myservor.write(posr);
+      posl = 53;
+      myservol.write(posl);
+    }
+  }
+  else if (x >= 246 && x <= 320)
+  {
+    while (posr <= 60)
+    {
+      myservor.write(posr);
+      posr = posr + 1;
+      posl = 53;
+      myservol.write(posl);
+    }
+  }
+  else if (x >= 75 && x <= 154)
+  {
+    while(posl <= 55)
+    {
+      myservol.write(posl);
+      posl = posl + 1;
+      posr = 53;
+      myservor.write(posr);
+    }
+    while(posl>55)
+    {
+     myservol.write(posl);
+      posl = posl - 1;
+      posr = 53;
+      myservor.write(posr);
+    } 
+  }
+  else if( x<74 && x>0)
+  {
+    while(posl <= 60)
+    {
+      myservol.write(posl);
+      posl = posl + 1;
+      posr = 53;
+      myservor.write(posr);
+    }
+  }
 }
